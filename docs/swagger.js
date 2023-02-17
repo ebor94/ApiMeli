@@ -11,14 +11,14 @@ const options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 const swaggerDocs = (app, port) => {
-  app.use("/api/v1/melidocs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api/docs/melidocs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-  app.get("/api/v1/meli-saveData.json", (req, res) => {
+  app.get("/api/docs/melidocs.json", (req, res) => {
     res.header("Content-Type", "application");
     res.send(swaggerSpec);
   });
 
-  console.log(`docs apis http://localhost:${port}/api/v1/melidocs`);
+  console.log(`docs apis http://localhost:${port}/api/docs/melidocs`);
 };
 
 module.exports = { swaggerDocs };

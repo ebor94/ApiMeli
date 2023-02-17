@@ -1,10 +1,11 @@
 require("dotenv").config();
-const { PORT } = process.env;
 const express = require("express");
+const app = express();
+
+const { PORT } = process.env;
 const saveMeliData = require("./routes/routes");
 const getdata = require("./routes/routes");
-const app = express();
-const { swaggerDocs } = require("./docs/swagger");
+const  {swaggerDocs}  = require("./docs/swagger");
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -17,7 +18,7 @@ app.use((req, res, next) => {
 });
 /*await readFile();*/
 app.get("/getdata/", getdata);
-app.post("/saveMeliData/", saveMeliData);
+app.get("/saveMeliData/", saveMeliData);
 app.use(express.json());
 app.listen(PORT, () => {
   console.log(`server up ${PORT}`);
