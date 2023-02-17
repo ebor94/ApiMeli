@@ -4,7 +4,7 @@ const express = require("express");
 const saveMeliData = require("./routes/routes");
 const getdata = require("./routes/routes");
 const app = express();
-const { swaggerDocs } = require("./v1/swagger");
+const { swaggerDocs } = require("./docs/swagger");
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
