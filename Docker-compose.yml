@@ -1,18 +1,18 @@
 version: "3"
 services:
-       meli-app:
-           container_name: meli_app
-           image: meli-app
-           restart: always
-           build: .
-           ports:
-             - "5000:3000"
-           links:
-             - mongo
-       mongo:
-             container_name: mongo
-             image: mongo
-             volumes:
-               - ./data:/data/db
-             ports:
-               - '27018:27017'
+  meli-app:
+    container_name: meli_app
+    image: meli-app
+    restart: always
+    build: .
+    ports:
+      - "5000:3000"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27018:27017'
