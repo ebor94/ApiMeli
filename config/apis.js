@@ -1,19 +1,17 @@
-const host = "https://api.mercadolibre.com/";
-
 const apiItems = {
-  url: host,
+  url:  "https://api.mercadolibre.com/",
   name: "items",
 };
 const apiCategory = {
-  url: host,
+  url:  "https://api.mercadolibre.com/",
   name: "categories",
 };
 const apiCurrency = {
-  url: host,
+  url:  "https://api.mercadolibre.com/",
   name: "currencies",
 };
 const apiSellers = {
-  url: host,
+  url:  "https://api.mercadolibre.com/",
   name: "users",
 };
 
