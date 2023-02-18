@@ -1,7 +1,7 @@
 version: "3"
 services:
        meli-app:
-           container_name: DBmeli-app
+           container_name: meli_app
            image: meli-app
            restart: always
            build: .
