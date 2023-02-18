@@ -15,4 +15,4 @@ const MeliSchema = new Schema(
   { timestamps: true }
 );
 MeliSchema.plugin(mongoosePaginate);
-module.exports = model("Meli", MeliSchema);
+module.exports = model("Products", MeliSchema);

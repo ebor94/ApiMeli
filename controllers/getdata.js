@@ -1,7 +1,7 @@
 require("../db/db");
 const Meli = require("../db/meli");
 const mongoose = require("mongoose");
-const MeliData = mongoose.model("Meli");
+const MeliData = mongoose.model("Products");
 const options = {
   page: 1,
   limit: 10,
