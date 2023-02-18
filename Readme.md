@@ -37,7 +37,7 @@ Modulos implementados
 - 	service.js
 - app.js
 
-#####Variables de entorno a configurar
+##### Variables de entorno a configurar
 - HOST_DATABASE
 - NAME_DATABASE
 - USER_DATABASE
@@ -46,7 +46,7 @@ Modulos implementados
 - PORTDOCKER
 
 
-#####Instalacion
+##### Instalacion
 
 1.    Servicio de Mongo instalado y ejecutando 
 2.  Docker instalado y ejecutando
