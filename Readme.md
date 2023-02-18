@@ -5,11 +5,12 @@
 leer un archivo, consultar una serie de APIs públicas de MercadoLibre y cargar una
 base de datos con los datos del archivo y las consultas a las APIs.
 
+##### Stack Utilizado👨🏼‍💻
 
-##### Stack Utilizado👨🏼‍💻 
-Backend : NodeJs
-Base De Datos : MongoDB
-Modulos implementados
+- Backend : NodeJs
+- Base De Datos : MongoDB
+- Modulos implementados:
+
 - Express
 - Nodemon
 - Mongoose
@@ -17,43 +18,47 @@ Modulos implementados
 - Axios
 - cors
 - Jest
--Dotenv
+- Dotenv
 
-#### Arquitectura Del Proyecto
+#### Estructura Del Proyecto
+
 - Config
-- 	-apis.js
-- 	file.js
+- -apis.js
+- -file.js
 - Controllers
-- 	SaveData.js
-- 	GetDta.js
+- -SaveData.js
+- -GetDta.js
 - DB
-- 	Db.js
-- 	Meli.js
+- -Db.js
+- -Meli.js
 - Docs
-- 	Swagger.js
+- -Swagger.js
 - Routes
-- 	routes.js
+- -routes.js
 - Service
-- 	service.js
+- -service.js
 - app.js
 
-<<<<<<< HEAD
 #### Variables de entorno a configurar
-=======
-- HOST_DATABASE
-- NAME_DATABASE
+
+>Para configurar las Variables de entorno  de debe crear unarchivo .env con las siguientes variables
+
+- HOST_DATABASE=mongo
+- NAME_DATABASE=meli
 - USER_DATABASE
-- PASSWORD_DATABAS
-- PORT
-- PORTDOCKER.
+- PASSWORD_DATABASE
+- PORT=3000.
 
+##### Instalacion Sin contenedor
 
-##### Instalacion
+1. Servicio de Mongo instalado y ejecutando ver configuracion del servicio [aqui](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/on-windows/ "aqui")
+2. para ejecutar el proyecto sin contenedor, ejecutar el comando **npm instal**l dentro de la carpeta del proyecto en una terminal
+3. Ejecuta el comando **nodemon app.js** para iniciar el servidor
+4. una vez el servidor este en ejecucion abrir
+5. el **host:3000/api/docs/melidocs**, alli encontrará la documentacion de los end-point
 
+##### Instalacion con contenedor
 
-1.    Servicio de Mongo instalado y ejecutando 
-2.  Docker instalado y ejecutando
-3.  ejecutar el comando **npm instal**l dentro de la carpeta del proyecto en una terminal
-4. Ejecuta el comando **nodemon app.js** para iniciar el servidor 
-5. una vez el servidor este en ejecucion abrir
-6. el **host:port/api/docs/melidocs**, alli encontrará la documentacion de los end-point :tw-1f60e:
+1. Modificar la variable de entorno HOST_DATABASE=mongo en el archivo .env
+2. En la terminalnos ubicamos en la raiz del proyecto y ejecutamos el siguiente comando docker-compose up
+3. Abrimos el navegador **http://localhost:5000/api/docs/melidocs** , alli encontrará la documentacion de los en_points.
