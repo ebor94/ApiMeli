@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = express.Router();
-const readFile = require("../controllers/Savedata");
+const readFile = require("../controllers/saveData");
 const getdata = require("../controllers/getdata");
 /**
  * @swagger

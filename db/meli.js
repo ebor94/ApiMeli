@@ -1,6 +1,6 @@
 require("../db/db");
 const { Schema, model } = require("mongoose");
-
+const mongoosePaginate = require('mongoose-paginate-v2');
 const MeliSchema = new Schema(
   {
     id: { type: String },
@@ -14,5 +14,5 @@ const MeliSchema = new Schema(
   },
   { timestamps: true }
 );
-
+MeliSchema.plugin(mongoosePaginate);
 module.exports = model("Meli", MeliSchema);

@@ -19,7 +19,7 @@ Modulos implementados
 - Jest
 -Dotenv
 
-##### Arquitectura Del Proyecto
+#### Arquitectura Del Proyecto
 - Config
 - 	-apis.js
 - 	file.js
@@ -37,16 +37,16 @@ Modulos implementados
 - 	service.js
 - app.js
 
-#####Variables de entorno a configurar
+#### Variables de entorno a configurar
 - HOST_DATABASE
 - NAME_DATABASE
 - USER_DATABASE
 - PASSWORD_DATABAS
 - PORT
-- PORTDOCKER
+- PORTDOCKER.
 
 
-#####Instalacion
+#### Instalacion
 
 1.    Servicio de Mongo instalado y ejecutando 
 2.  Docker instalado y ejecutando
