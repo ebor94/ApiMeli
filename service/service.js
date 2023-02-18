@@ -1,7 +1,7 @@
 const axios = require("axios");
 require("../db/db");
 const apiconfig = require("../config/apis");
-const Meli = require("../db/meli");
+const product = require("../db/meli");
 let MeliData = {};
 const serviceGetItem = async (req, res) => {
   let namecategory;
@@ -32,8 +32,8 @@ const serviceGetItem = async (req, res) => {
         MeliData.namecategory = namecategory;
         MeliData.currency = currency;
         MeliData.seller = seller;
-        const Modelmeli = new Meli(MeliData);
-        await Modelmeli.save();
+        const Modelproduct = new product(MeliData);
+        await Modelproduct.save();
       }
     }
   }
