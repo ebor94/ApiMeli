@@ -1,5 +1,5 @@
 ##### Un caso en el que usarías procesos para resolver un problema y por qué?
-se podría utilizar procesos para procesar grandes cantidades de datos, tales como el análisis de grandes conjuntos de datos o la ejecución de cálculos complejos en paralelo. En este caso, se pueden dividir los datos en partes iguales y procesar cada parte en un proceso separado, lo que permitiría aprovechar los múltiples núcleos de CPU y acelerar el tiempo total de procesamiento.
+se podría utilizar procesos para generar grandes cantidades de datos, tales como el análisis de grandes conjuntos de datos o la ejecución de cálculos complejos en paralelo. En este caso, se pueden dividir los datos en partes iguales y procesar cada parte en un proceso separado, lo que permitiría aprovechar los múltiples núcleos de CPU y acelerar el tiempo total de procesamiento.
 
 ##### Un caso en el que usarías threads para resolver un problema y por qué.
 
