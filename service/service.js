@@ -3,6 +3,9 @@ require("../db/db");
 const apiconfig = require("../config/apis");
 const product = require("../db/meli");
 let MeliData = {};
+
+
+
 const serviceGetItem = async (req, res) => {
   let namecategory;
   let currency;
@@ -16,7 +19,7 @@ const serviceGetItem = async (req, res) => {
     for (var i = 0; i < response.data.length; i++) {
       var item = response.data[i];
       if (item.code == 200) {
-        currency = await serviceGetcurrency(item.body.currency_id);
+        currency = await serviceGetcurrency(item.body.currency_id, items.pais);
         seller = await serviceGetUser(item.body.seller_id);
         namecategory = await serviceGetCategory(item.body.category_id);
         if (typeof item.body.price !== "undefined") {
@@ -32,8 +35,7 @@ const serviceGetItem = async (req, res) => {
         MeliData.namecategory = namecategory;
         MeliData.currency = currency;
         MeliData.seller = seller;
-        const Modelproduct = new product(MeliData);
-        await Modelproduct.save();
+        await saveData(MeliData)
       }
     }
   }
@@ -55,10 +57,13 @@ const serviceGetCategory = async (req) => {
   }
 };
 
-const serviceGetcurrency = async (req) => {
+const serviceGetcurrency = async (curr, pais) => {
+  const modelproduct = await product.findOne({ pais: `${pais}` }).exec();
+  const currencyDb = modelproduct.currency
+  console.log(currencyDb)
   if (typeof req != "undefined") {
     const response = await axios.get(
-      `${apiconfig.apiCurrency.url}${apiconfig.apiCurrency.name}/${req}`
+      `${apiconfig.apiCurrency.url}${apiconfig.apiCurrency.name}/${curr}`
     );
     if (response.status === 200) {
       return response.data.description;
@@ -83,5 +88,10 @@ const serviceGetUser = async (req) => {
     return "n/a";
   }
 };
+
+const saveData = async (MeliData) => {
+  const Modelproduct = new product(MeliData);
+  await Modelproduct.save();
+}
 
 module.exports = serviceGetItem;
