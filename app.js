@@ -5,6 +5,7 @@ const app = express();
 const { PORT } = process.env;
 const saveMeliData = require("./routes/routes");
 const getdata = require("./routes/routes");
+const saveMeliDataP = require("./routes/routes");
 const  {swaggerDocs}  = require("./docs/swagger");
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 /*await readFile();*/
 app.get("/getdata/", getdata);
 app.get("/saveMeliData/", saveMeliData);
+app.post("/saveMeliDataP/", saveMeliDataP);
 app.use(express.json());
 app.listen(PORT, () => {
   console.log(`server up ${PORT}`);

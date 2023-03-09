@@ -2,6 +2,7 @@ const express = require("express");
 const routes = express.Router();
 const readFile = require("../controllers/saveData");
 const getdata = require("../controllers/getdata");
+const saveMeliDataP =  require("../controllers/saveMeliDataPost")
 /**
  * @swagger
  * tags:
@@ -45,6 +46,8 @@ routes.get("/savemeliData/", readFile);
  *
  */
 routes.get("/getdata/", getdata);
+
+routes.post('/saveMeliDataP/',saveMeliDataP);
 
 
 
