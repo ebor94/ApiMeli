@@ -59,10 +59,9 @@ const serviceGetCategory = async (req) => {
 
 const serviceGetcurrency = async (curr, pais) => {
   const modelproduct = await product.findOne({ pais: `${pais}` }).exec();
-  const currencyDb = modelproduct.currency
-  console.log(currencyDb)
-  if (typeof req != "undefined") {
-    const response = await axios.get(
+  console.log(modelproduct);
+  if( modelproduct == null ){    
+     const response = await axios.get(
       `${apiconfig.apiCurrency.url}${apiconfig.apiCurrency.name}/${curr}`
     );
     if (response.status === 200) {
@@ -71,7 +70,8 @@ const serviceGetcurrency = async (curr, pais) => {
       return "n/a";
     }
   } else {
-    return "n/a";
+   
+    return modelproduct.currency;
   }
 };
 const serviceGetUser = async (req) => {
