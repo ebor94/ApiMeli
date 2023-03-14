@@ -47,6 +47,9 @@ base de datos con los datos del archivo y las consultas a las APIs.
 - NAME_DATABASE=meli
 - USER_DATABASE
 - PASSWORD_DATABASE
+- DELIMITER =  ,
+- EXTENSION =  csv
+- NAME_DOCUMENT =  technical_challenge_data
 - PORT=3000.
 
 ##### Instalacion Sin contenedor
