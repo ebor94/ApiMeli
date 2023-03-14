@@ -47,7 +47,43 @@ routes.get("/savemeliData/", readFile);
  */
 routes.get("/getdata/", getdata);
 
-routes.post('/saveMeliDataP/',saveMeliDataP);
+
+  /**
+ * @swagger
+ * tags:
+ *   name: 
+ *   description: almacena la informacion extraida de las apis de mercado libre mediante la lectura de  un archivo
+ * /saveMeliDataP:
+ *   post:
+ *     summary: A sample survey.
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: name
+ *         value : 'technical_challenge_data'
+ *         type: string
+ *         description: name file.
+ *       - in: body
+ *         name: delimiter
+ *         value: ','
+ *         type: string
+ *         description: delimiter file.
+ *       - in: body
+ *         name: extension
+ *         value: 'csv'
+ *         type: string
+ *         description: extension file.
+ *     responses:
+ *       200:
+ *         description: OK
+ *
+ */
+routes.post('/saveMeliDataP/', async  (req,res) => {
+       const response =   await saveMeliDataP(req);   
+       
+       res.json(response); 
+  });
 
 
 

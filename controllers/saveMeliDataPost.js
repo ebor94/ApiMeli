@@ -1,24 +1,43 @@
 const serviceGetItem = require("../service/service");
 const fs = require("fs"); // filesystem
 const config = require("../config/file");
+const { NAME_DOCUMENT, DELIMITER, EXTENSION } = process.env;
 let item = [];
 let lines = [];
 
+const postOk = async function (req) {
+  const delimiter = req.delimiter;
+  const nameFile = req.name;
+  const extension = req.extension;
+  const namefull = `${NAME_DOCUMENT}.`+`${EXTENSION}`
+console.log(namefull);
+  if (delimiter === `${DELIMITER}` && (nameFile === `${NAME_DOCUMENT}` ||  nameFile === namefull ) &&  extension ===`${EXTENSION}`) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 async function fileRead(req, res) {
-  const readStream = fs.createReadStream(
-    __dirname + "/" + `${config.file.name}` + "." + `${config.file.extension}`
-  );
-  readStream.on("data", (chunk) => (lines += chunk));
-  readStream.on("end", async () => {
-    await readCsv(lines);
-    res.json({ mensaje: "datos almacenados" });
-  });
+  const validaPost = await postOk(req.body);
+  if (validaPost) {
+    const readStream = fs.createReadStream(
+      __dirname + "/" + `${NAME_DOCUMENT}` + "." + `${EXTENSION}`
+    );
+    readStream.on("data", (chunk) => (lines += chunk));
+    readStream.on("end", async () => {
+      await readCsv(lines);
+     return "datos almacenados"
+    });
+  } else {
+    return "error de parametros post";
+  }
 }
 
 async function readCsv(fila) {
   fila
     .split("\r\n")
-    .map((line) => line.split(`${config.file.delimiter}`))
+    .map((line) => line.split(`${DELIMITER}`))
     .map(function (items, i) {
       if (i > 0)
         return item.push({

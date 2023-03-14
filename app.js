@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const bodyParser = require('body-parser')
 const app = express();
 
 const { PORT } = process.env;
@@ -7,6 +8,7 @@ const saveMeliData = require("./routes/routes");
 const getdata = require("./routes/routes");
 const saveMeliDataP = require("./routes/routes");
 const  {swaggerDocs}  = require("./docs/swagger");
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -18,9 +20,15 @@ app.use((req, res, next) => {
   next();
 });
 /*await readFile();*/
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 app.get("/getdata/", getdata);
 app.get("/saveMeliData/", saveMeliData);
-app.post("/saveMeliDataP/", saveMeliDataP);
+app.post("/saveMeliDataP/", async (req, res) => {
+  const  response  =  await saveMeliDataP(req,res);
+  console.log(response)
+});
 app.use(express.json());
 app.listen(PORT, () => {
   console.log(`server up ${PORT}`);
